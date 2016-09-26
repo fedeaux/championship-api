@@ -17,7 +17,7 @@ gem 'omniauth'
 gem 'rack-cors', :require => 'rack/cors'
 
 # REST
-gem 'rabl-rails'
+gem 'rabl'
 
 # Console
 gem "table_print"

@@ -1,0 +1,2 @@
+class OneHundredMetreDashChampionship < Championship
+end

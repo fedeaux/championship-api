@@ -44,7 +44,7 @@ module Rabl
 end
 
 Rabl.configure do |config|
-  config.include_json_root = false
-  config.include_child_root = false
+  config.include_json_root = true
+  config.include_child_root = true
   config.force_iso_dates = true
 end

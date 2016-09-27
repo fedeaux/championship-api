@@ -30,7 +30,7 @@ RSpec.describe "Championships requests", type: :request do
     end
 
     describe "GET api/championships/:id" do
-      it 'returns the championship info' do
+      it 'returns the championship info, with a message for current_winner if there are no performances' do
         dash_championship
 
         get api_championship_path(dash_championship.id), headers: @request_headers
@@ -38,6 +38,19 @@ RSpec.describe "Championships requests", type: :request do
 
         expect(json_response['championship']['id']).to eq dash_championship.id
         expect(json_response['championship']['type']).to eq dash_championship.class.name
+        expect(json_response['championship']['result']['current_winner']).to eq 'Not enough data yet'
+      end
+
+      it 'returns the championship info, with the current_winner if there are enough performances' do
+        championship = create :dart_throwing, :with_competitors, :with_performances
+
+        get api_championship_path(championship.id), headers: @request_headers
+        json_response = JSON.parse(response.body)
+
+        expect(json_response['championship']['id']).to eq championship.id
+        expect(json_response['championship']['type']).to eq championship.class.name
+        expect(json_response['championship']['result']['current_winner']['competitor']['name']).to eq 'Demian Maia'
+        expect(json_response['championship']['result']['current_winner']['performance']['distance']).to eq 8
       end
     end
 

@@ -1,6 +1,7 @@
 class ChampionshipParticipationPerformance < ApplicationRecord
   belongs_to :participation, class_name: :ChampionshipParticipation
   has_one :championship, through: :participation
+  has_one :competitor, through: :participation
 
   validates :type, presence: true
   validates :participation, presence: true

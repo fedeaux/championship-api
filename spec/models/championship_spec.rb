@@ -13,6 +13,12 @@ RSpec.describe Championship, type: :model do
       expect(championship).to be_valid
       expect(championship.type).to eq 'DartThrowingChampionship'
     end
+
+    it 'can add the trait :with_competitors' do
+      championship = create :dart_throwing, :with_competitors
+      expect(championship).to be_valid
+      expect(championship.competitors).not_to be_empty
+    end
   end
 
   describe 'validations' do
@@ -30,6 +36,18 @@ RSpec.describe Championship, type: :model do
       expect {
         championship = Championship.new name: 'UFC 102', type: 'MMAChampionship'
       }.to raise_error ActiveRecord::SubclassNotFound
+    end
+  end
+
+  describe 'championship participation' do
+    let(:championship) { create :one_hundred_metre_dash, :with_competitors }
+
+    it 'has many participations' do
+      expect(championship.participations.count).to be_a Numeric
+    end
+
+    it 'has many participations' do
+      expect(championship.competitors.count).to be_a Numeric
     end
   end
 end

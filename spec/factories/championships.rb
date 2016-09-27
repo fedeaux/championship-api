@@ -35,6 +35,9 @@ FactoryGirl.define do
             participation: participation,
             performance: [[performance_key, index * i + index + i + 3]].to_h
           })
+
+          # minimum time = 0 * 0 + 0 + 0 + 3 = 3
+          # maximum distance = 2 * 1 + 2 + 1 + 3 = 8
         end
       end
     end

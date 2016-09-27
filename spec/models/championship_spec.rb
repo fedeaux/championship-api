@@ -74,4 +74,40 @@ RSpec.describe Championship, type: :model do
       expect(championship.competitors.count).to eq 3
     end
   end
+
+  describe '#result' do
+    let(:one_hundred_metre_dash_without_performances) { create :one_hundred_metre_dash, :with_competitors }
+    let(:one_hundred_metre_dash) { create :one_hundred_metre_dash, :with_competitors, :with_performances }
+    let(:dart_throwing) { create :dart_throwing, :with_competitors, :with_performances }
+
+    context 'open championship' do
+      it 'returns a hash containing "Not enough data yet" if there are no performances' do
+        expect(one_hundred_metre_dash_without_performances.result[:current_winner]).to eq 'Not enough data yet'
+      end
+
+      it 'returns the performance with the smallest time for OneHundredMeterDashCompetition, wrapped in "current_winner"' do
+        expect(one_hundred_metre_dash.result[:current_winner][:performance][:time]).to eq 3
+        expect(one_hundred_metre_dash.result[:current_winner][:competitor][:name]).to eq 'Demian Maia'
+      end
+
+      it 'returns the performance with the greatest distance for DartThrowingCompetition, wrapped in "current_winner"' do
+        expect(dart_throwing.result[:current_winner][:performance][:distance]).to eq 8
+        expect(dart_throwing.result[:current_winner][:competitor][:name]).to eq 'Rodolfo Vieira'
+      end
+    end
+
+    context 'closed championship' do
+      it 'returns the performance with the smallest time for OneHundredMeterDashCompetition, wrapped in "final_winner"' do
+        one_hundred_metre_dash.update open: false
+        expect(one_hundred_metre_dash.result[:final_winner][:performance][:time]).to eq 3
+        expect(one_hundred_metre_dash.result[:final_winner][:competitor][:name]).to eq 'Demian Maia'
+      end
+
+      it 'returns the performance with the greatest distance for DartThrowingCompetition, wrapped in "final_winner"' do
+        dart_throwing.update open: false
+        expect(dart_throwing.result[:final_winner][:performance][:distance]).to eq 8
+        expect(dart_throwing.result[:final_winner][:competitor][:name]).to eq 'Rodolfo Vieira'
+      end
+    end
+  end
 end

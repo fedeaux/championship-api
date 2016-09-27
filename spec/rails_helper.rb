@@ -11,6 +11,9 @@ Dir.glob('spec/support/**/*.rb') { |f| require_relative f.split('/')[1..-1].join
 
 ActiveRecord::Migration.maintain_test_schema!
 
+require 'simplecov'
+SimpleCov.start
+
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!

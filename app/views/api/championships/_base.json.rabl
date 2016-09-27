@@ -1,1 +1,1 @@
-attributes :id, :name, :type
+attributes :id, :name, :type, :open

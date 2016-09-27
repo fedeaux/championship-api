@@ -27,6 +27,25 @@ $ rails console
 > User.create email: 'admin@example.com', password: 'somepassword', password_confirmation: 'somepassword'
 ````
 
+Rode o servidor com
+```
+$ rails server
+```
+
+Ele estará escutando requisições em http://localhost:3000
+
+Você pode utilizar, de um terminal
+
+```
+curl -v -X POST -F 'email=admin@example.com' -F 'password=somepassword' localhost:3000/auth/sign_in
+```
+
+A opção -v mostra os headers, procure por "access-token" e "client" e adicione aos headers das requisições que requerem autenticação
+
+```
+curl -XPOST -H 'Content-Type: application/json' -H 'access-token: Lj36tYDQho9N4Rgm00pC1w' -H 'client: OwiG5y0Y81qVZtlwqnJ4Ig' -H "uid: admin@example.com" localhost:3000/api/championships
+```
+
 ### Testes
 
 Na raiz do projeto
@@ -49,11 +68,14 @@ rspec spec/api_features/
 5. A join table entre Athlete e Championship se refere ao Athlete como competitor. Isso facilitaria transformar este campo em polimorfico para, por exemplo, deixar que times possar ser utilizados no lugar de atletas.
 6. O código está com 100% de cobertura de testes (segundo a gem [simplecov](https://github.com/colszowka/simplecov)). Abra coverage/index.html para ver um relatório de cobertura.
 7. Não criei testes específicos para os controllers por falta de tempo/necessidade. Os request_specs testam os controllers indiretamente.
-7. Organizei o git bonitinho, veja com git log ou:
+8. Foram em torno de 10h dedicadas a este projeto.
+9. Organizei o git bonitinho, veja com git log ou:
 
 ```
 git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 ```
+
+
 
 ### Vários polimentos poderiam ser feitos
 

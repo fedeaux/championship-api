@@ -37,9 +37,7 @@ class ChampionshipParticipationPerformance < ApplicationRecord
 
       expected_format.each do |name, field_type|
         unless performance[name].is_a? field_type
-          errors.add(:performance, "Wrong type for performance[:#{type}]:
-                                      expected #{field_type},
-                                      given: #{performance[name].class.name}")
+          errors.add(:performance, "Wrong type for performance[:#{type}]: expected #{field_type}, given: #{performance[name].class.name}")
         end
       end
 

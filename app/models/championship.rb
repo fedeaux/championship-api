@@ -25,7 +25,7 @@ class Championship < ApplicationRecord
     super (competitor_ids + competitors.map(&:id)).uniq
   end
 
-  def self.perfomance_record_class
+  def self.performance_record_class
     nil
   end
 end

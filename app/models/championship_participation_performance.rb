@@ -52,7 +52,7 @@ class ChampionshipParticipationPerformance < ApplicationRecord
     if participation
       expected_class = participation.championship.class.performance_record_class
 
-      if type != expected_class
+      if type != expected_class.to_s
         errors.add(:type, "Cannot add a #{type} to a #{participation.championship.class}, expected #{expected_class}")
       end
     end

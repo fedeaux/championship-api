@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :athletes, only: [:index, :create, :show]
-    resources :championships, only: [:index, :create, :show, :update]
+    resources :championships, only: [:index, :create, :show, :update] do
+      resources :championship_performances, only: [:index, :create], as: 'performances'
+    end
   end
 end

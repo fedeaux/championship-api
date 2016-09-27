@@ -28,11 +28,12 @@ FactoryGirl.define do
       performance_key = klass == OneHundredMetreDashPerformance ? :time : :distance
 
       championship.participations.each_with_index do |participation, index|
-        # Here, for simplicity, we use the index value as the performance indicator
+
+        # Here, for simplicity, we use i and index as the performance indicators
         championship.maximum_performances_per_competitor.times do |i|
           klass.create({
             participation: participation,
-            performance: [[performance_key, index * i]].to_h
+            performance: [[performance_key, index * i + index + i + 3]].to_h
           })
         end
       end

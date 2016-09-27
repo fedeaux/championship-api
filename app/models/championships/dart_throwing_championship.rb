@@ -1,0 +1,2 @@
+class DartThrowingChampionship < Championship
+end

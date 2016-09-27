@@ -50,4 +50,14 @@ RSpec.describe Championship, type: :model do
       expect(championship.competitors.count).to be_a Numeric
     end
   end
+
+  describe '#update' do
+    let(:championship) { create :one_hundred_metre_dash }
+
+    it 'ignores updates on type' do
+      original_type = championship.type
+      championship.update type: attributes_for(:dart_throwing)[:type]
+      expect(championship.type).to eq original_type
+    end
+  end
 end

@@ -4,4 +4,12 @@ class Championship < ApplicationRecord
 
   has_many :participations, class_name: :ChampionshipParticipation
   has_many :competitors, through: :participations
+
+  before_update :ensure_type_in_not_changed
+
+  def ensure_type_in_not_changed
+    if type_changed?
+      self.type = type_was
+    end
+  end
 end

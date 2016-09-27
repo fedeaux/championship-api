@@ -10,7 +10,7 @@ describe "Two competitiors on one hundred metre dash championship", type: :reque
     # Create a championship
     post api_championships_path, headers: @request_headers, params: {
       championship: {
-        name: 'Arremeço de Dardos',
+        name: 'Lançamento de Dardo',
         type: 'DartThrowingChampionship'
       }
     }

@@ -14,7 +14,6 @@ FactoryGirl.define do
     competitors {[
       create_or_find_athlete(:athlete_demian),
       create_or_find_athlete(:athlete_rodolfo),
-      create_or_find_athlete(:athlete_marcelo),
     ]}
   end
 

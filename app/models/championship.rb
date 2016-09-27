@@ -7,6 +7,10 @@ class Championship < ApplicationRecord
 
   before_update :ensure_type_in_not_changed
 
+  def closed?
+    !open?
+  end
+
   def ensure_type_in_not_changed
     if type_changed?
       self.type = type_was

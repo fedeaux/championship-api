@@ -1,5 +1,6 @@
 class ChampionshipParticipationPerformance < ApplicationRecord
   belongs_to :participation, class_name: :ChampionshipParticipation
+  has_one :championship, through: :participation
 
   validates :type, presence: true
   validates :participation, presence: true
@@ -7,6 +8,7 @@ class ChampionshipParticipationPerformance < ApplicationRecord
 
   validate :type_matches_championship_type
   validate :valid_performance_format
+  validate :championship_must_be_open
 
   serialize :performance
 
@@ -52,6 +54,14 @@ class ChampionshipParticipationPerformance < ApplicationRecord
 
       if type != expected_class
         errors.add(:type, "Cannot add a #{type} to a #{participation.championship.class}, expected #{expected_class}")
+      end
+    end
+  end
+
+  def championship_must_be_open
+    if participation
+      if participation.championship.closed?
+        errors.add(:participation, "Cannot add a performance to a closed championship")
       end
     end
   end

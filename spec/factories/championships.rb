@@ -17,4 +17,8 @@ FactoryGirl.define do
       create_or_find_athlete(:athlete_marcelo),
     ]}
   end
+
+  trait :closed do
+    open false
+  end
 end

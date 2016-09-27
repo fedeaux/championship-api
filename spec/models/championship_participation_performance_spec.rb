@@ -41,5 +41,12 @@ RSpec.describe ChampionshipParticipationPerformance, type: :model do
         distance: 1.2, unknown_key: 'value' } ))).
         to be_invalid
     end
+
+    it 'is invalid if the underlying championship has already been closed' do
+      participation = create(:rodolfo_participating_on_dart_throwing, championship: create(:dart_throwing, :closed) )
+
+      expect(ChampionshipParticipationPerformance.new(participation_attributes.merge( participation: participation ))).
+        to be_invalid
+    end
   end
 end

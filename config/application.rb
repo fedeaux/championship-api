@@ -9,5 +9,6 @@ Bundler.require(*Rails.groups)
 module Competition
   class Application < Rails::Application
     config.autoload_paths << "#{Rails.root}/app/models/championships"
+    config.autoload_paths << "#{Rails.root}/app/models/championship_participation_performances"
   end
 end

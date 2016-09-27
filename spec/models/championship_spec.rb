@@ -59,5 +59,19 @@ RSpec.describe Championship, type: :model do
       championship.update type: attributes_for(:dart_throwing)[:type]
       expect(championship.type).to eq original_type
     end
+
+    it 'does not allow competitors to be removed, only added, without repetitions' do
+      competitors = [ create(:athlete_demian), create(:athlete_rodolfo) ]
+      new_competitor = create(:athlete_marcelo)
+
+      championship.update competitors: competitors
+      expect(championship.competitors.count).to eq 2
+
+      championship.update competitors: [new_competitor]
+      expect(championship.competitors.count).to eq 3
+
+      championship.update competitors: competitors
+      expect(championship.competitors.count).to eq 3
+    end
   end
 end

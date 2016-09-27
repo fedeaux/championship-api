@@ -12,4 +12,12 @@ class Championship < ApplicationRecord
       self.type = type_was
     end
   end
+
+  def competitors=(competitors)
+    self.competitor_ids = competitors.map(&:id)
+  end
+
+  def competitor_ids=(competitor_ids)
+    super (competitor_ids + competitors.map(&:id)).uniq
+  end
 end

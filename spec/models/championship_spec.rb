@@ -92,7 +92,7 @@ RSpec.describe Championship, type: :model do
 
       it 'returns the performance with the greatest distance for DartThrowingCompetition, wrapped in "current_winner"' do
         expect(dart_throwing.result[:current_winner][:performance][:distance]).to eq 8
-        expect(dart_throwing.result[:current_winner][:competitor][:name]).to eq 'Rodolfo Vieira'
+        expect(dart_throwing.result[:current_winner][:competitor][:name]).to eq 'Demian Maia'
       end
     end
 
@@ -100,13 +100,13 @@ RSpec.describe Championship, type: :model do
       it 'returns the performance with the smallest time for OneHundredMeterDashCompetition, wrapped in "final_winner"' do
         one_hundred_metre_dash.update open: false
         expect(one_hundred_metre_dash.result[:final_winner][:performance][:time]).to eq 3
-        expect(one_hundred_metre_dash.result[:final_winner][:competitor][:name]).to eq 'Demian Maia'
+        expect(one_hundred_metre_dash.result[:final_winner][:competitor][:name]).to eq 'Rodolfo Vieira'
       end
 
       it 'returns the performance with the greatest distance for DartThrowingCompetition, wrapped in "final_winner"' do
         dart_throwing.update open: false
         expect(dart_throwing.result[:final_winner][:performance][:distance]).to eq 8
-        expect(dart_throwing.result[:final_winner][:competitor][:name]).to eq 'Rodolfo Vieira'
+        expect(dart_throwing.result[:final_winner][:competitor][:name]).to eq 'Demian Maia'
       end
     end
   end

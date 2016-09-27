@@ -13,6 +13,12 @@ RSpec.describe Championship, type: :model do
       expect(championship).to be_valid
       expect(championship.type).to eq 'DartThrowingChampionship'
     end
+
+    it 'can add the trait :with_competitors' do
+      championship = create :dart_throwing, :with_competitors
+      expect(championship).to be_valid
+      expect(championship.competitors).not_to be_empty
+    end
   end
 
   describe 'validations' do
@@ -30,6 +36,42 @@ RSpec.describe Championship, type: :model do
       expect {
         championship = Championship.new name: 'UFC 102', type: 'MMAChampionship'
       }.to raise_error ActiveRecord::SubclassNotFound
+    end
+  end
+
+  describe 'championship participation' do
+    let(:championship) { create :one_hundred_metre_dash, :with_competitors }
+
+    it 'has many participations' do
+      expect(championship.participations.count).to be_a Numeric
+    end
+
+    it 'has many participations' do
+      expect(championship.competitors.count).to be_a Numeric
+    end
+  end
+
+  describe '#update' do
+    let(:championship) { create :one_hundred_metre_dash }
+
+    it 'ignores updates on type' do
+      original_type = championship.type
+      championship.update type: attributes_for(:dart_throwing)[:type]
+      expect(championship.type).to eq original_type
+    end
+
+    it 'does not allow competitors to be removed, only added, without repetitions' do
+      competitors = [ create(:athlete_demian), create(:athlete_rodolfo) ]
+      new_competitor = create(:athlete_marcelo)
+
+      championship.update competitors: competitors
+      expect(championship.competitors.count).to eq 2
+
+      championship.update competitors: [new_competitor]
+      expect(championship.competitors.count).to eq 3
+
+      championship.update competitors: competitors
+      expect(championship.competitors.count).to eq 3
     end
   end
 end

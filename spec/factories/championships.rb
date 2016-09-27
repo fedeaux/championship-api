@@ -9,4 +9,12 @@ FactoryGirl.define do
     name 'Lançamento de Dardo'
     type 'DartThrowingChampionship'
   end
+
+  trait :with_competitors do
+    competitors {[
+      create_or_find_athlete(:athlete_demian),
+      create_or_find_athlete(:athlete_rodolfo),
+      create_or_find_athlete(:athlete_marcelo),
+    ]}
+  end
 end

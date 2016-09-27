@@ -66,5 +66,34 @@ RSpec.describe "Championships requests", type: :request do
         expect(Championship.count).to eq 0
       end
     end
+
+    describe "PUT api/championships" do
+      let(:championship) { create :one_hundred_metre_dash }
+      let(:championship_params) { { name: '100 metros rasos 2016' } }
+
+      it 'updates the championship name' do
+        put api_championship_path(championship.id), headers: @request_headers, params: { championship: championship_params }
+
+        json_response = JSON.parse(response.body)
+
+        expect(json_response['championship']['name']).to eq championship_params[:name]
+        expect(json_response['championship']['errors']).to be_empty
+      end
+
+      it 'allows competitors to be add' do
+        competitors = [ create(:athlete_demian), create(:athlete_rodolfo) ]
+        competitiors_ids = competitors.map(&:id)
+
+        put api_championship_path(championship.id), headers: @request_headers,
+          params: {
+            championship: { competitor_ids: competitors.map(&:id) }
+          }
+
+        json_response = JSON.parse(response.body)
+
+        expect(json_response['championship']['errors']).to be_empty
+        expect(championship.competitors).to include( *competitors)
+      end
+    end
   end
 end

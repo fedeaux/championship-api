@@ -9,6 +9,7 @@ class ChampionshipParticipationPerformance < ApplicationRecord
   validate :type_matches_championship_type
   validate :valid_performance_format
   validate :championship_must_be_open
+  validate :cannot_exceed_championships_maximum_performances_per_competitor
 
   serialize :performance
 
@@ -66,5 +67,11 @@ class ChampionshipParticipationPerformance < ApplicationRecord
 
   def performance_format
     type.constantize.performance_format if type
+  end
+
+  def cannot_exceed_championships_maximum_performances_per_competitor
+    if participation and participation.performances.count == participation.championship.maximum_performances_per_competitor
+      errors.add(:participation, "Maximum number of performances reached for this athlete on this championship")
+    end
   end
 end

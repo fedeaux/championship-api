@@ -28,4 +28,8 @@ class Championship < ApplicationRecord
   def self.performance_record_class
     nil
   end
+
+  def maximum_performances_per_competitor
+    1
+  end
 end

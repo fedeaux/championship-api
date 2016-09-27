@@ -17,7 +17,7 @@ gem 'omniauth'
 gem 'rack-cors', :require => 'rack/cors'
 
 # REST
-gem 'rabl-rails'
+gem 'rabl'
 
 # Console
 gem "table_print"
@@ -38,6 +38,7 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'log4r'
   gem "rspec-rails"
+  gem 'simplecov', :require => false
 end
 
 group :development do

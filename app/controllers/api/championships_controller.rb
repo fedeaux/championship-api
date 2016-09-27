@@ -24,6 +24,6 @@ class Api::ChampionshipsController < ApplicationController
   end
 
   def championship_params
-    params.require(:championship).permit(:name, :type, competitor_ids: [])
+    params.require(:championship).permit(:name, :type, :open, competitor_ids: [])
   end
 end

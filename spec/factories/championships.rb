@@ -27,8 +27,15 @@ FactoryGirl.define do
       klass = championship.class.performance_record_class
       performance_key = klass == OneHundredMetreDashPerformance ? :time : :distance
 
-      championship.participations.each_with_index do |participation, index|
+      # Sort the participation by competitor name in order to always get the same winner on specs.
+      # By the construction of the performance, the first athlete will always win the OneHundredMetreDashChampionship
+      # and the last athlete will always win the DartThrowingChampionship
 
+      participations_ordered_by_athlete_name = championship.participations.sort{ |participation_1, participation_2|
+        participation_1.competitor.name <=> participation_2.competitor.name
+      }
+
+      participations_ordered_by_athlete_name.each_with_index do |participation, index|
         # Here, for simplicity, we use i and index as the performance indicators
         championship.maximum_performances_per_competitor.times do |i|
           klass.create({

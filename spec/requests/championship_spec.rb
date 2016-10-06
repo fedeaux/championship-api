@@ -49,7 +49,7 @@ RSpec.describe "Championships requests", type: :request do
 
         expect(json_response['championship']['id']).to eq championship.id
         expect(json_response['championship']['type']).to eq championship.class.name
-        expect(json_response['championship']['result']['current_winner']['competitor']['name']).to eq 'Demian Maia'
+        expect(json_response['championship']['result']['current_winner']['competitor']['name']).to eq 'Rodolfo Vieira'
         expect(json_response['championship']['result']['current_winner']['performance']['distance']).to eq 8
       end
     end

@@ -83,3 +83,4 @@ git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(
 2. Especificar status de http para todas as respostas. Por exemplo, quando uma validação do ActiveRecord falha, a API responde com 200 mas inclúi os erros na resposta. Muitas APIs fazem isso, mas eu poderia polir o código pra incluir uma resposta mais no dialeto do http (talvez 400?).
 3. Todas as mensagens estão hard-coded. Um polimento legal seria utilizar códigos ao invés de strings, facilitando inclusive a internacionalização no futuro.
 4. Permitir especificação e validação de unidades (3 ponto das observações).
+5. A trait :with_performaces da championship factory acabou ficando muito dependente das athlete factories. (Os resultados dependem do nome dos atletas). Um refactor aqui poderia ser bem útil.

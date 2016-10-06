@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/spec/models/athlete_spec.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/spec/models/athlete_spec.rb": [
         1,
         null,
         1,
@@ -20,12 +20,12 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/models/athlete.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/models/athlete.rb": [
         1,
         1,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/spec/models/championship_participation_performance_spec.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/spec/models/championship_participation_performance_spec.rb": [
         1,
         null,
         1,
@@ -91,7 +91,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/models/championship_participation_performance.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/models/championship_participation_performance.rb": [
         1,
         1,
         1,
@@ -171,7 +171,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/spec/models/championship_participation_spec.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/spec/models/championship_participation_spec.rb": [
         1,
         null,
         1,
@@ -200,7 +200,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/models/championship_participation.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/models/championship_participation.rb": [
         1,
         1,
         1,
@@ -210,7 +210,7 @@
         1,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/spec/models/championship_spec.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/spec/models/championship_spec.rb": [
         1,
         null,
         1,
@@ -325,7 +325,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/models/championship.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/models/championship.rb": [
         1,
         1,
         1,
@@ -390,7 +390,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/spec/models/user_spec.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -409,7 +409,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/spec/requests/athlete_spec.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/spec/requests/athlete_spec.rb": [
         1,
         null,
         1,
@@ -475,7 +475,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/spec/requests/auth_spec.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/spec/requests/auth_spec.rb": [
         1,
         null,
         1,
@@ -506,7 +506,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/spec/requests/championship_participation_performance_spec.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/spec/requests/championship_participation_performance_spec.rb": [
         1,
         null,
         1,
@@ -567,7 +567,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/spec/requests/championship_spec.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/spec/requests/championship_spec.rb": [
         1,
         null,
         1,
@@ -681,7 +681,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/controllers/api/championships_controller.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/controllers/api/championships_controller.rb": [
         1,
         1,
         null,
@@ -712,7 +712,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/controllers/application_controller.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/controllers/application_controller.rb": [
         1,
         1,
         1,
@@ -722,7 +722,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/models/championships/dart_throwing_championship.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/models/championships/dart_throwing_championship.rb": [
         1,
         1,
         76,
@@ -739,7 +739,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/controllers/api/athletes_controller.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/controllers/api/athletes_controller.rb": [
         1,
         1,
         1,
@@ -760,7 +760,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/controllers/api/championship_performances_controller.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/controllers/api/championship_performances_controller.rb": [
         1,
         1,
         null,
@@ -794,7 +794,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/models/championship_participation_performances/dart_throwing_performance.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/models/championship_participation_performances/dart_throwing_performance.rb": [
         1,
         1,
         null,
@@ -803,7 +803,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/models/championship_participation_performances/one_hundred_metre_dash_performance.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/models/championship_participation_performances/one_hundred_metre_dash_performance.rb": [
         1,
         1,
         null,
@@ -812,7 +812,7 @@
         null,
         null
       ],
-      "/Users/fedorius/Work/interviews/estante-virtual/competition/app/models/championships/one_hundred_metre_dash_championship.rb": [
+      "/Users/fedorius/Work/interviews/.bk/estante-virtual/championship-api/app/models/championships/one_hundred_metre_dash_championship.rb": [
         1,
         1,
         8,
@@ -826,6 +826,6 @@
         null
       ]
     },
-    "timestamp": 1475011218
+    "timestamp": 1475764614
   }
 }
